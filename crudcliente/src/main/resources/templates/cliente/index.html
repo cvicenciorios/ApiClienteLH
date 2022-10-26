@@ -1,0 +1,43 @@
+<html>
+<body>
+<h1 th:text=${mensaje}></h1>
+<form th:action="@{/crearCliente}" th:object="${cliente}" method="POST">
+
+	<span th:if="${cliente.id != null}">
+		<input type="text" th:field="${cliente.id}" readonly />
+	</span>
+	<input type="text" placeholder="nombre" th:field="${cliente.nombre}" />
+		<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+	<input type="text" placeholder="rut" th:field="${cliente.rut}" />
+	<input type="text" placeholder="correo" th:field="${cliente.correo}" />
+	<input type="Submit" th:value="${cliente.id != null}?'Guardar Cambios':'Crear cliente'" />
+	<!--
+	<span th:if="${cliente.id != null}">
+		<input type="Submit" th:value="'Cancelar Cambios'"  />
+	</span>
+	-->
+</form>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>nombre</th>
+				<th>rut</th>
+				<th>correo</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td th:text="${cliente.id}"></td>
+				<td th:text="${cliente.nombre}"></td>
+				<td th:text="${cliente.rut}"></td>
+				<td th:text="${cliente.correo}"></td>
+				<td><a th:href="@{'/editarCliente/'+ ${cliente.id}}">editar</a> | 
+				<a th:href="@{'/eliminarCliente/'+ ${cliente.id}}">eliminar</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
