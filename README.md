@@ -40,4 +40,4 @@ CREATE TABLE cliente (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci
 
-Para las pruebas se utilizó la herramienta POSTMAN, y dentro del proyecto git compartido se incluye un directirio con el proyecto POSTMAN ()
+Para las pruebas se utilizó la herramienta POSTMAN, y dentro del proyecto git compartido se incluye un directirio con el proyecto POSTMAN (directorio ProyectoPOSTMAN)
